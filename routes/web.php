@@ -30,7 +30,7 @@ Route::get('/volunteer/index', [VolunteerController::class, 'index'])->name('vol
 
 Route::get('/volunteer/{id}', [VolunteerController::class, 'show'])->name('volunter.show');
 
-Route::get('/volunteer/{id}/update', [VolunteerController::class, 'update'])->name('volunter.update');
+Route::put('/volunteer/{id}/update', [VolunteerController::class, 'update'])->name('volunter.update');
 
 Route::get('/volunteer/{id}/edit', [VolunteerController::class, 'edit'])->name('volunter.edit');
 

@@ -74,9 +74,10 @@ class VolunteerController extends Controller
      * @param  \App\Models\volunteer  $volunteer
      * @return \Illuminate\Http\Response
      */
-    public function edit(volunteer $volunteer)
+    public function edit($id)
     {
-        //
+        $volunteer = volunteer::find($id);
+        return view('volunteer.edit', ['volunteer' => $volunteer]);
     }
 
     /**
@@ -86,9 +87,16 @@ class VolunteerController extends Controller
      * @param  \App\Models\volunteer  $volunteer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, volunteer $volunteer)
+    public function update($id, Request $request)
     {
-        //
+        $volunteer = volunteer::find($id);
+
+        $validatedAttributes =
+            $request->validate(['name' => 'required', 'birthdate' => 'required']);
+                    
+        $volunteer->update($validatedAttributes);
+
+        return redirect('dashboard')->with('success', 'volunter updated successfully');
     }
 
     /**
