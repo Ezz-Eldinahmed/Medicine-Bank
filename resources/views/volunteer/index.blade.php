@@ -10,6 +10,8 @@
         <thead>
             <tr class="bg-green-300">
                 <th>id</th>
+                <th>x</th>
+                <th>Edit</th>
                 <th>name</th>
                 <th>address</th>
                 <th>birthdate</th>
@@ -33,7 +35,12 @@
             @forelse ($volunteer as $volunt)
             <tr>
                 <td class="border border-green-600">{{$volunt->id}}</td>
-                <td class="border border-green-600">{{$volunt->name}}</td>
+                <td class="border border-green-600"><a href="{{route('volunter.destroy',$volunt)}}"
+                        onclick="return confirm('Are you sure you want to delete this volunteer?')">x</a> </td>
+                <td class="border border-green-600"><a href="{{route('volunter.edit',$volunt->id)}}">Edit</a></td>
+
+                <td class="border border-green-600"><a href='{{route('volunter.show',$volunt->id)}}'>
+                        {{$volunt->name}}</a></td>
                 <td class="border border-green-600">{{$volunt->address}}</td>
                 <td class="border border-green-600">{{$volunt->birthdate}} </td>
                 <td class="border border-green-600">{{$volunt->certificate}}</td>

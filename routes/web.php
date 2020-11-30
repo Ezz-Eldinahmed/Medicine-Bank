@@ -27,3 +27,11 @@ Route::get('/volunteer', [VolunteerController::class, 'create'])->name('volunter
 Route::post('/volunteer/store', [VolunteerController::class, 'store'])->name('volunter.store');
 
 Route::get('/volunteer/index', [VolunteerController::class, 'index'])->name('volunter.index');
+
+Route::get('/volunteer/{id}', [VolunteerController::class, 'show'])->name('volunter.show');
+
+Route::get('/volunteer/{id}/update', [VolunteerController::class, 'update'])->name('volunter.update');
+
+Route::get('/volunteer/{id}/edit', [VolunteerController::class, 'edit'])->name('volunter.edit');
+
+Route::get('/volunteer/{id}/destroy', [VolunteerController::class, 'destroy'])->name('volunter.destroy');

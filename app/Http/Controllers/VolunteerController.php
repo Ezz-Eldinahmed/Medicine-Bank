@@ -14,7 +14,7 @@ class VolunteerController extends Controller
      */
     public function index()
     {
-        $volunteer = volunteer::all();
+        $volunteer = volunteer::paginate(10);
         return view('volunteer.index', ['volunteer' => $volunteer]);
     }
 
@@ -62,9 +62,10 @@ class VolunteerController extends Controller
      * @param  \App\Models\volunteer  $volunteer
      * @return \Illuminate\Http\Response
      */
-    public function show(volunteer $volunteer)
+    public function show($id)
     {
-        //
+        $volunteer = volunteer::find($id);
+        return view('volunteer.show', ['volunteer' => $volunteer]);
     }
 
     /**
@@ -96,8 +97,10 @@ class VolunteerController extends Controller
      * @param  \App\Models\volunteer  $volunteer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(volunteer $volunteer)
+    public function destroy($id)
     {
-        //
+        $volunteer = volunteer::find($id);
+        $volunteer->delete();
+        return view('dashboard');
     }
 }
