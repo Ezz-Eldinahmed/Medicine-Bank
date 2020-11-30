@@ -7,7 +7,7 @@
 
     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 
-        <form class="p-5" method="POST" action="{{ route('volunter') }}">
+        <form class="p-5" method="POST" action="{{ route('volunter.store') }}">
             @csrf
 
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
