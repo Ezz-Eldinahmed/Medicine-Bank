@@ -92,8 +92,15 @@ class VolunteerController extends Controller
         $volunteer = volunteer::find($id);
 
         $validatedAttributes =
-            $request->validate(['name' => 'required', 'birthdate' => 'required']);
-
+            $request->validate([
+                'name' => 'required', 'birthdate' => 'required',
+                'joinBefore' => 'nullable', 'job' => 'nullable', 'email' => 'nullable',
+                'certificate' => 'nullable', 'address' => 'nullable',
+                'mobile' => 'nullable', 'telephone' => 'nullable',
+                'type' => 'nullable', 'KindOfVolentering' => 'nullable',
+                'place' => 'nullable', 'whatYouHaveDone' => 'nullable',
+                'location' => 'nullable',
+            ]);
         $volunteer->update($validatedAttributes);
 
         return redirect('/volunteer/index');

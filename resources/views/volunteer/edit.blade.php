@@ -89,10 +89,16 @@
                 <label class="col-span-3">
                     <span class="text-gray-700">Types</span>
                     <select name="KindOfVolentering" class="form-select mt-1 block w-full">
-                        <option value="collect">Collect Of Drugs</option>
-                        <option value="doctors">Doctors For Charity</option>
-                        <option value="sort">Sort of Drugs</option>
-                        <option value="prepare">Prepare Of Drugs</option>
+                        <option @if($volunteer->KindOfVolentering == 'collect') selected @endif value="collect">
+                            Collect
+                            Of Drugs</option>
+                        <option @if($volunteer->KindOfVolentering == 'doctors') selected @endif value="doctors">
+                            Doctors
+                            For Charity</option>
+                        <option @if($volunteer->KindOfVolentering == 'sort') selected @endif value="sort">
+                            Sort of Drugs</option>
+                        <option @if($volunteer->KindOfVolentering == 'prepare') selected @endif value="prepare">
+                            Prepare Of Drugs</option>
                     </select>
                 </label>
 
