@@ -43,7 +43,6 @@ class DepartmentController extends Controller
         Department::create([
             'name' => $request->name,
             'manger' => $request->manger,
-            'number' => 1
         ]);
         return view('dashboard');
     }

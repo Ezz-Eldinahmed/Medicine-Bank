@@ -1,9 +1,10 @@
 <x-app-layout>
 
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Volunteers
-        </h2>
+            Employees        
+        <x-jet-nav-link href="{{ route('employee.create') }}" :active="request()->routeIs('employee.create')">
+            {{ __('Add Employee') }}
+        </x-jet-nav-link>
     </x-slot>
 
     <table class="p-2 table-auto border-separate border border-green-600">
