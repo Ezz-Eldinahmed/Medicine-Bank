@@ -53,7 +53,7 @@ class VolunteerController extends Controller
             'place' => $request->place,
             'whatYouHaveDone' => $request->whatYouHaveDone,
         ]);
-        return view('dashboard');
+        return redirect('/volunteer/index');
     }
 
     /**
@@ -93,10 +93,10 @@ class VolunteerController extends Controller
 
         $validatedAttributes =
             $request->validate(['name' => 'required', 'birthdate' => 'required']);
-                    
+
         $volunteer->update($validatedAttributes);
 
-        return redirect('dashboard')->with('success', 'volunter updated successfully');
+        return redirect('/volunteer/index');
     }
 
     /**
@@ -109,6 +109,6 @@ class VolunteerController extends Controller
     {
         $volunteer = volunteer::find($id);
         $volunteer->delete();
-        return view('dashboard');
+        return redirect('/volunteer/index');
     }
 }

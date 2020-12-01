@@ -20,10 +20,6 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
-Route::get('/profile', function () {
-    return view('profile.show');
-});
-
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

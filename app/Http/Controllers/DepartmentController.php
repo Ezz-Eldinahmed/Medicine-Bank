@@ -44,7 +44,7 @@ class DepartmentController extends Controller
             'name' => $request->name,
             'manger' => $request->manger,
         ]);
-        return view('dashboard');
+        return redirect('/department/index');
     }
 
     /**
@@ -87,7 +87,7 @@ class DepartmentController extends Controller
 
         $department->update($validatedAttributes);
 
-        return redirect('dashboard');
+        return redirect('/department/index');
     }
 
     /**
@@ -100,6 +100,6 @@ class DepartmentController extends Controller
     {
         $department = Department::find($id);
         $department->delete();
-        return view('dashboard');
+        return redirect('/department/index');
     }
 }

@@ -55,7 +55,7 @@ class EmployeesController extends Controller
             'experience' => $request->experience,
             'department_id' => 1
         ]);
-        return view('dashboard');
+        return redirect('/employee/index');
     }
 
     /**
@@ -106,7 +106,7 @@ class EmployeesController extends Controller
 
         $employee->update($validatedAttributes);
 
-        return redirect('dashboard')->with('success', 'employee updated successfully');
+        return redirect('/employee/index');
     }
 
     /**
@@ -119,6 +119,6 @@ class EmployeesController extends Controller
     {
         $Employees = Employees::find($id);
         $Employees->delete();
-        return view('dashboard');
+        return redirect('/employee/index');
     }
 }
