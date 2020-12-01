@@ -6,7 +6,7 @@
         </h2>
     </x-slot>
 
-    <table class="table-auto border-separate border border-green-600">
+    <table class="p-2 table-auto border-separate border border-green-600">
         <thead>
             <tr>
                 <th>id</th>

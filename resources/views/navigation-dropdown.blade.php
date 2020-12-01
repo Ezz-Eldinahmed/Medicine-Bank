@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <img src="/logo.png" width="150px" height="50px">  
+                        <img src="/logo.png" width="150px" height="50px">
                     </a>
                 </div>
 
@@ -21,6 +21,12 @@
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('volunter.index') }}" :active="request()->routeIs('dashboard')">
                         {{ __('volunter') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('department.index') }}" :active="request()->routeIs('dashboard')">
+                        {{ __('departments') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('department.create') }}" :active="request()->routeIs('dashboard')">
+                        {{ __('Add Department') }}
                     </x-jet-nav-link>
                 </div>
             </div>
