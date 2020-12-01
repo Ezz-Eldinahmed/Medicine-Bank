@@ -16,16 +16,16 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('volunter.create') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('volunter.create') }}" :active="request()->routeIs('volunter.create')">
                         {{ __(' Add volunter') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('volunter.index') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('volunter.index') }}" :active="request()->routeIs('volunter.index')">
                         {{ __('volunter') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('department.index') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('department.index') }}" :active="request()->routeIs('department.index')">
                         {{ __('departments') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('department.create') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('department.create') }}" :active="request()->routeIs('department.create')">
                         {{ __('Add Department') }}
                     </x-jet-nav-link>
                 </div>
