@@ -46,6 +46,18 @@
                     <input type="text" class="border-solid border-gray-10 border-2 p-3 md:text-xl w-full"
                         value="{{$employee->experience}}" name="experience" placeholder="experience" />
                 </div>
+
+                <label class="col-span-3">
+                    <span class="text-gray-700">Department</span>
+                    <select name="department_id" class="form-select mt-1 block w-full">
+                        @foreach ($departments as $department)
+                        <option @if ($employee->department->name == $department->name) selected @endif
+                            value="{{($department->id)}}">{{($department->name)}}
+                        </option>
+                        @endforeach
+                    </select>
+                </label>
+
                 <div class="col-span-2 text-right">
                     <button class="py-3 px-6 bg-green-500 text-white font-bold w-full sm:w-32">
                         Update
