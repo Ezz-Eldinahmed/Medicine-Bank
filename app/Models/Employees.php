@@ -8,5 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Employees extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'age', 'salary', 'position', 'experience', 'joinDate', 'department_id'];
+    protected $fillable = ['email','name', 'age', 'salary', 'position', 'experience', 'joinDate', 'department_id'];
+
+    public function Department()
+    {
+        return $this->belongsTo(Department::class);
+    }
 }

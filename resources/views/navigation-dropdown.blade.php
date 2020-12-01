@@ -28,6 +28,12 @@
                     <x-jet-nav-link href="{{ route('department.create') }}" :active="request()->routeIs('department.create')">
                         {{ __('Add Department') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('employee.index') }}" :active="request()->routeIs('employee.index')">
+                        {{ __('Employees') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('employee.create') }}" :active="request()->routeIs('employee.create')">
+                        {{ __('Add Employee') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
         </div>

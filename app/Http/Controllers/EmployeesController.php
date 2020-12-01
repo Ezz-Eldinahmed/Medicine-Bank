@@ -14,7 +14,8 @@ class EmployeesController extends Controller
      */
     public function index()
     {
-        //
+        $employees = Employees::paginate(5);
+        return view('Employee.index', ['employees' => $employees]);
     }
 
     /**
@@ -24,7 +25,7 @@ class EmployeesController extends Controller
      */
     public function create()
     {
-        //
+        return view('Employee.create');
     }
 
     /**
@@ -35,7 +36,26 @@ class EmployeesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'birthdate' => 'required',
+            'position' => 'required',
+            'salary' => 'required',
+            'joinDate' => 'required',
+            'experience' => 'required',
+        ]);
+        Employees::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'age' => $request->birthdate,
+            'position' => $request->position,
+            'salary' => $request->salary,
+            'joinDate' => $request->joinDate,
+            'experience' => $request->experience,
+            'department_id' => 1
+        ]);
+        return view('dashboard');
     }
 
     /**
@@ -44,9 +64,10 @@ class EmployeesController extends Controller
      * @param  \App\Models\Employees  $employees
      * @return \Illuminate\Http\Response
      */
-    public function show(Employees $employees)
+    public function show($id)
     {
-        //
+        $employees = Employees::findOrFail($id);
+        return view('Employee.show', ['employees' => $employees]);
     }
 
     /**
@@ -55,9 +76,10 @@ class EmployeesController extends Controller
      * @param  \App\Models\Employees  $employees
      * @return \Illuminate\Http\Response
      */
-    public function edit(Employees $employees)
+    public function edit($id)
     {
-        //
+        $employee = Employees::find($id);
+        return view('Employee.edit', ['employee' => $employee]);
     }
 
     /**
@@ -67,9 +89,24 @@ class EmployeesController extends Controller
      * @param  \App\Models\Employees  $employees
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Employees $employees)
+    public function update(Request $request, $id)
     {
-        //
+        $employee = Employees::find($id);
+
+        $validatedAttributes =
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required',
+                'birthdate' => 'required',
+                'position' => 'required',
+                'salary' => 'required',
+                'joinDate' => 'required',
+                'experience' => 'required',
+            ]);
+
+        $employee->update($validatedAttributes);
+
+        return redirect('dashboard')->with('success', 'employee updated successfully');
     }
 
     /**
@@ -78,8 +115,10 @@ class EmployeesController extends Controller
      * @param  \App\Models\Employees  $employees
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Employees $employees)
+    public function destroy($id)
     {
-        //
+        $Employees = Employees::find($id);
+        $Employees->delete();
+        return view('dashboard');
     }
 }
