@@ -1,7 +1,7 @@
 <x-app-layout>
 
     <x-slot name="header">
-            Employees        
+        Employees
         <x-jet-nav-link href="{{ route('employee.create') }}" :active="request()->routeIs('employee.create')">
             {{ __('Add Employee') }}
         </x-jet-nav-link>
@@ -20,6 +20,7 @@
                 <th>age</th>
                 <th>experience</th>
                 <th>email</th>
+                <th>Department</th>
                 <th>Created At</th>
                 <th>Updated At</th>
             </tr>
@@ -41,6 +42,7 @@
                 <td class="border border-green-600">{{$employee->age}}</td>
                 <td class="border border-green-600">{{$employee->experience}}</td>
                 <td class="border border-green-600">{{$employee->email}} </td>
+                <td class="border border-green-600">{{$employee->department->name}} </td>
                 <td class="border border-green-600">{{$employee->created_at}} </td>
                 <td class="border border-green-600">{{$employee->updated_at}} </td>
             </tr>

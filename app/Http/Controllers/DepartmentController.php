@@ -43,6 +43,7 @@ class DepartmentController extends Controller
         Department::create([
             'name' => $request->name,
             'manger' => $request->manger,
+            'department_id' => $request->department_id,
         ]);
         return redirect('/department/index');
     }

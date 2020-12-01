@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use App\Models\Employees;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,8 @@ class EmployeesController extends Controller
      */
     public function create()
     {
-        return view('Employee.create');
+        $departments = Department::all();
+        return view('Employee.create', ['departments' => $departments]);
     }
 
     /**
@@ -53,7 +55,7 @@ class EmployeesController extends Controller
             'salary' => $request->salary,
             'joinDate' => $request->joinDate,
             'experience' => $request->experience,
-            'department_id' => 1
+            'department_id' => $request->department_id,
         ]);
         return redirect('/employee/index');
     }

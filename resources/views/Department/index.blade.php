@@ -36,7 +36,7 @@
                         {{$dep->name}}</a></td>
                 <td class="border border-green-600">{{$dep->manger}}</td>
 
-                <td class="border border-green-600">{{$dep->number}} </td>
+                <td class="border border-green-600">{{$dep->employees()}} </td>
 
                 <td class="border border-green-600">{{$dep->created_at}} </td>
                 <td class="border border-green-600">{{$dep->updated_at}} </td>

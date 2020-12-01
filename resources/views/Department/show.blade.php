@@ -7,7 +7,7 @@
     </x-slot>
     <ul class="p-3">
         <li>manger : {{$department->manger}}</li>
-        <li>number : {{$department->number}}</li>
+        <li>number : {{$department->employees()}}</li>
         <li>name : {{$department->name}} </li>
         <li>created_at :{{$department->created_at}} </li>
         <li>updated_at :{{$department->updated_at}} </li>
