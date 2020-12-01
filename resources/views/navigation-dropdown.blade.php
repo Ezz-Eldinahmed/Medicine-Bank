@@ -17,13 +17,13 @@
                     </x-jet-nav-link>
 
                     <x-jet-nav-link href="{{ route('volunter.create') }}" :active="request()->routeIs('volunter.create')">
-                        {{ __(' Add volunter') }}
+                        {{ __(' Add Volunter') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('volunter.index') }}" :active="request()->routeIs('volunter.index')">
-                        {{ __('volunter') }}
+                        {{ __('Volunter') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('department.index') }}" :active="request()->routeIs('department.index')">
-                        {{ __('departments') }}
+                        {{ __('Departments') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('department.create') }}" :active="request()->routeIs('department.create')">
                         {{ __('Add Department') }}
